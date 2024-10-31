@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   lang?: string;
 }
@@ -8,5 +10,5 @@ const { lang = 'ko' } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-  <slot />
+<slot />
 </html>
