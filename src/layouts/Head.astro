@@ -8,7 +8,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  // image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -16,7 +16,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  image = '/blog-placeholder-1.jpg',
+  // image = '/blog-placeholder-1.jpg',
 } = Astro.props;
 ---
 
@@ -25,6 +25,7 @@ const {
   <meta name='viewport' content='width=device-width,initial-scale=1' />
   <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
   <meta name='generator' content={Astro.generator} />
+  <!-- Fonts -->
   <link rel='preload' as='font' href={pretendard400} type='font/woff2' />
   <link rel='preload' as='font' href={pretendard700} type='font/woff2' />
   <!-- Canonical URL -->
@@ -38,11 +39,11 @@ const {
   <meta property='og:url' content={Astro.url} />
   <meta property='og:title' content={title} />
   <meta property='og:description' content={description} />
-  <meta property='og:image' content={new URL(image, Astro.url)} />
+  <!-- <meta property='og:image' content={new URL(image, Astro.url)} /> -->
   <!-- Twitter -->
   <meta property='twitter:card' content='summary_large_image' />
   <meta property='twitter:url' content={Astro.url} />
   <meta property='twitter:title' content={title} />
   <meta property='twitter:description' content={description} />
-  <meta property='twitter:image' content={new URL(image, Astro.url)} />
+  <!-- <meta property='twitter:image' content={new URL(image, Astro.url)} /> -->
 </head>

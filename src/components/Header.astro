@@ -1,15 +1,18 @@
 ---
 import { SITE_TITLE } from '../consts';
 import SunIcon from '../icons/SunIcon.astro';
+import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class='p-4 sm:p-6'>
-  <nav class='flex'>
-    <a href='/' class='flex items-center gap-2'>
-      <SunIcon />
-      <h2 class='text-xl font-semibold'>
-        {SITE_TITLE}
-      </h2>
-    </a>
+<header class='p-4 sm:p-6 space-y-4'>
+  <a href='/' class='flex items-center gap-2 text-accent-foreground'>
+    <SunIcon />
+    <h2 class='text-xl font-semibold'>
+      {SITE_TITLE}
+    </h2>
+  </a>
+  <nav class='flex gap-4'>
+    <HeaderLink href='/'>홈</HeaderLink>
+    <HeaderLink href='/blog'>블로그</HeaderLink>
   </nav>
 </header>
