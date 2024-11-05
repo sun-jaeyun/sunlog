@@ -3,11 +3,24 @@ import '@fontsource/pretendard';
 import Document from '../../layouts/Document.astro';
 import Head from '../../layouts/Head.astro';
 import Header from '../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import PostCard from '../../components/PostCard.astro';
+
+const posts = await getCollection('blog');
 ---
 
 <Document>
-  <Head></Head>
+  <Head />
   <body>
-  <Header />
+    <Header />
+    <main class='flex flex-wrap gap-4 max-w-screen-lg m-auto'>
+      {
+        posts.map((e) => (
+          <a href={`/blog/post/${e.id}`}>
+            <PostCard data={e.data} />
+          </a>
+        ))
+      }
+    </main>
   </body>
 </Document>

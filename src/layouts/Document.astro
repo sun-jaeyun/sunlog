@@ -1,4 +1,6 @@
 ---
+import '@fontsource/pretendard/400.css';
+import '@fontsource/pretendard/700.css';
 import '../styles/global.css';
 
 interface Props {
@@ -10,5 +12,5 @@ const { lang = 'ko' } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-<slot />
+  <slot />
 </html>

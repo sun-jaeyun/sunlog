@@ -1,0 +1,19 @@
+---
+import type { InferEntrySchema } from 'astro:content';
+
+interface Props {
+  data: InferEntrySchema<'blog'>;
+}
+
+const { data } = Astro.props;
+---
+
+<article class='p-4 border rounded-lg'>
+  <section class='flex flex-col gap-2'>
+    <h2 class='text-xl'>{data.title}</h2>
+    <p class='text-sm text-muted-foreground'>{data.description}</p>
+  </section>
+  <!--<time datetime={data.publishedAt.toISOString()}>-->
+  <!--  {data.publishedAt.toLocaleDateString('ko-kr')}-->
+  <!--</time>-->
+</article>
