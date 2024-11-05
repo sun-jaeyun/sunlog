@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import animate from 'tailwindcss-animate';
+import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -51,5 +52,79 @@ export default {
       },
     },
   },
-  plugins: [animate],
+  plugins: [
+    animate,
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.post': {
+          '& *': {
+            'line-height': '2rem',
+          },
+          '& h2': {
+            'margin-top': '2rem',
+            'margin-bottom': '2rem',
+            'font-size': '1.5rem',
+            'line-height': '2rem',
+            'font-weight': 700,
+          },
+          '& h3': {
+            'margin-top': '1rem',
+            'margin-bottom': '1rem',
+            'font-size': '1.25rem',
+            'line-height': '1.75rem',
+            'font-weight': 700,
+          },
+          '& h4': {
+            'margin-top': '1rem',
+            'margin-bottom': '1rem',
+            'font-weight': 700,
+          },
+          '& a': {
+            color: 'hsl(var(--accent-foreground))',
+            'text-decoration-line': 'underline',
+          },
+          '& a:visited': {
+            color: 'hsl(var(--destructive))',
+          },
+          '& abbr': {
+            'text-underline-offset': '2px',
+          },
+          '& image': {
+            padding: '1rem',
+          },
+          '& ol': {
+            'list-style-type': 'decimal',
+            'margin-top': '1rem',
+            'margin-bottom': '1rem',
+          },
+          '& ul': {
+            'list-style-type': 'disc',
+            'margin-top': '1rem',
+            'margin-bottom': '1rem',
+          },
+          '& ul.contains-task-list': {
+            'list-style-type': 'none',
+            'line-height': '1.5rem',
+          },
+          '& hr': {
+            'margin-top': '2rem',
+            'margin-bottom': '2rem',
+          },
+          '& code': {
+            padding: '0.25rem',
+            'border-radius': 'calc(var(--radius) - 4px)',
+            'background-color': 'hsl(var(--muted))',
+          },
+          '& blockquote': {
+            'margin-top': '1rem',
+            'margin-bottom': '1rem',
+            'border-left-width': '4px',
+          },
+          '& blockquote > p': {
+            'padding-left': '0.5rem',
+          },
+        },
+      });
+    }),
+  ],
 };

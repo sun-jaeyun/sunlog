@@ -6,13 +6,13 @@ interface Props {
 }
 
 const { data } = Astro.props;
+const { title, description, publishedAt, category } = data;
 ---
 
 <article class='p-4 border rounded-lg'>
-  <section class='flex flex-col gap-2'>
-    <h2 class='text-xl'>{data.title}</h2>
-    <p class='text-sm text-muted-foreground'>{data.description}</p>
-  </section>
+  <p class='text-sm'>{category}</p>
+  <h2 class='text-xl'>{title}</h2>
+  <p class='text-xs text-muted-foreground'>{description}</p>
   <!--<time datetime={data.publishedAt.toISOString()}>-->
   <!--  {data.publishedAt.toLocaleDateString('ko-kr')}-->
   <!--</time>-->
