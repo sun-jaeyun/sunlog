@@ -1,8 +1,17 @@
+---
+import type { InferEntrySchema } from 'astro:content';
+
+type Props = InferEntrySchema<'blog'>;
+const { title, publishedAt, category } = Astro.props;
+---
+
 <main
   class:list={[
-    'max-w-screen-lg m-auto p-8 leading-8',
+    'max-w-screen-lg m-auto p-8 pb-48 leading-8',
     '[&_h2]:text-2xl [&_h2]:font-bold [&_h2]:my-8',
     '[&_a]:text-accent-foreground [&_a:visited]:text-destructive [&_a]:underline',
+    '[&_abbr]:underline-offset-2',
+    '[&_img]:p-4',
     '[&_ol]:list-decimal [&_ol]:my-4',
     '[&_ul]:list-disc [&_ul]:my-4',
     '[&_.contains-task-list]:list-none [&_.contains-task-list]:leading-6',
@@ -10,6 +19,13 @@
   ]}
 >
   <article>
+    <div class='flex flex-col items-center mb-24'>
+      <p>{category}</p>
+      <h1 class='text-3xl font-bold'>{title}</h1>
+      <time datetime={publishedAt.toISOString()} class='text-muted-foreground'>
+        {publishedAt.toLocaleDateString('ko-kr')}
+      </time>
+    </div>
     <slot />
   </article>
 </main>

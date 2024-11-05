@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import * as console from 'node:console';
 import type { GetStaticPaths } from 'astro';
 import Document from '../../../layouts/Document.astro';
 import Head from '../../../layouts/Head.astro';
@@ -25,10 +24,10 @@ const { Content, headings } = await render(post);
 ---
 
 <Document>
-  <Head title={post.data.title} description={post.data.description} />
+  <Head title={`${post.data.category} - ${post.data.title}`} description={post.data.description} />
   <body>
     <Header />
-    <Post>
+    <Post {...post.data}>
       <Content />
     </Post>
   </body>
