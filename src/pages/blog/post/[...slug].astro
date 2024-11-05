@@ -20,14 +20,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
+const { id, data } = post;
 const { Content, headings } = await render(post);
 ---
 
 <Document>
-  <Head title={`${post.data.category} - ${post.data.title}`} description={post.data.description} />
+  <Head
+    title={`${data.category} - ${data.title}`}
+    description={data.description}
+    image={`/blog/image/${id}.png`}
+  />
   <body>
     <Header />
-    <Post {...post.data}>
+    <Post {...data}>
       <Content />
     </Post>
   </body>

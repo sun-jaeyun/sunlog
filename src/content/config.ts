@@ -14,6 +14,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     category: z.string(),
     // Reference an array of related posts from the `blog` collection by `slug`
     // relatedPosts: z.array(reference('blog')),
