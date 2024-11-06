@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry, InferEntrySchema } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>;
 
@@ -11,7 +11,7 @@ const { title, description, publishedAt, category } = data;
 <article class='border rounded-lg'>
   <Image src={`/blog/image/${id}.png`} alt={title} width={1200} height={630} class='rounded-t-lg' />
   <section class='p-4 space-y-2'>
-    <p class='text-sm'>{category}</p>
+    <p class='text-sm'>{category.id}</p>
     <h2 class='text-xl'>{title}</h2>
     <p class='text-xs text-muted-foreground'>{description}</p>
   </section>

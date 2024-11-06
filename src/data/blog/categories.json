@@ -1,0 +1,10 @@
+{
+  "iOS": {
+    "bgTopColor": "#F2AB4F",
+    "bgBottomColor": "#EF5534"
+  },
+  "Android": {
+    "bgTopColor": "#6CD88B",
+    "bgBottomColor": "#4D85EF"
+  }
+}
