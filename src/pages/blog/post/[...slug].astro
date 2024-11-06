@@ -32,7 +32,7 @@ const { Content, headings } = await render(post);
   />
   <body>
     <Header />
-    <Post {...data}>
+    <Post headings={headings} {...data}>
       <Content />
     </Post>
   </body>
