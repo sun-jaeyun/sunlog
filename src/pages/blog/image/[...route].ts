@@ -1,12 +1,10 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { OGImageRoute } from 'astro-og-canvas';
+import Regex from '../../../lib/regex';
 
 const hexToRgbArray = (hex: string) => {
-  // HEX 문자열 검증 정규 표현식
-  const isValidHex = /^#([0-9A-Fa-f]{6})$/;
-
-  // HEX 문자열이 유효하지 않은 경우 null 반환
-  if (!isValidHex.test(hex)) {
+  // HEX 문자열이 유효하지 않은 경우 null
+  if (!Regex.HEX.test(hex)) {
     console.error('올바른 HEX 형식이 아닙니다.');
     return null;
   }
