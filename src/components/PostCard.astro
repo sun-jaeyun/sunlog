@@ -1,18 +1,20 @@
 ---
-import type { InferEntrySchema } from 'astro:content';
+import { Image } from 'astro:assets';
+import type { CollectionEntry, InferEntrySchema } from 'astro:content';
 
-interface Props {
-  data: InferEntrySchema<'blog'>;
-}
+type Props = CollectionEntry<'blog'>;
 
-const { data } = Astro.props;
+const { id, data } = Astro.props;
 const { title, description, publishedAt, category } = data;
 ---
 
-<article class='p-4 border rounded-lg'>
-  <p class='text-sm'>{category}</p>
-  <h2 class='text-xl'>{title}</h2>
-  <p class='text-xs text-muted-foreground'>{description}</p>
+<article class='border rounded-lg'>
+  <Image src={`/blog/image/${id}.png`} alt={title} width={1200} height={630} class='rounded-t-lg' />
+  <section class='p-4 space-y-2'>
+    <p class='text-sm'>{category}</p>
+    <h2 class='text-xl'>{title}</h2>
+    <p class='text-xs text-muted-foreground'>{description}</p>
+  </section>
   <!--<time datetime={data.publishedAt.toISOString()}>-->
   <!--  {data.publishedAt.toLocaleDateString('ko-kr')}-->
   <!--</time>-->

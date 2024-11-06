@@ -1,3 +1,10 @@
 {
-  "categories": ["iOS", "Android"]
+  "categories": [
+    {
+      "name": "iOS"
+    },
+    {
+      "name": "Android"
+    }
+  ]
 }

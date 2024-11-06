@@ -1,10 +1,10 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 
-const config = defineCollection({
-  loader: file('src/data/blog/config.json'),
+const categories = defineCollection({
+  loader: file('src/data/blog/config.json', { parser: (text) => JSON.parse(text).categories }),
   // schema: z.object({
-  //   categories: z.array(z.string()),
+  //   name: z.string(),
   // }),
 });
 
@@ -21,4 +21,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { config, blog };
+export const collections = { categories, blog };

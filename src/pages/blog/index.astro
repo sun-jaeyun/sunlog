@@ -1,5 +1,4 @@
 ---
-import '@fontsource/pretendard';
 import Document from '../../layouts/Document.astro';
 import Head from '../../layouts/Head.astro';
 import Header from '../../components/Header.astro';
@@ -7,17 +6,18 @@ import { getCollection } from 'astro:content';
 import PostCard from '../../components/PostCard.astro';
 
 const posts = await getCollection('blog');
+// class={index === 0 ? 'w-full sm:m-16' : 'w-full sm:w-[calc(50%-0.5rem)]'}
 ---
 
 <Document>
   <Head />
   <body>
     <Header />
-    <main class='flex flex-wrap gap-4 max-w-screen-lg m-auto'>
+    <main class='flex flex-wrap gap-4 max-w-screen-lg m-auto p-6'>
       {
-        posts.map((e) => (
-          <a href={`/blog/post/${e.id}`}>
-            <PostCard data={e.data} />
+        posts.map((post, index) => (
+          <a href={`/blog/post/${post.id}`} class='w-full sm:w-[calc(50%-0.5rem)]'>
+            <PostCard {...post} />
           </a>
         ))
       }
