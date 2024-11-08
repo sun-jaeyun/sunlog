@@ -48,4 +48,16 @@ const {
   <meta property='twitter:title' content={title} />
   <meta property='twitter:description' content={description} />
   <meta property='twitter:image' content={new URL(image, Astro.url)} />
+  <!-- GA4 -->
+  <script type='text/partytown' async src='https://www.googletagmanager.com/gtag/js?id=G-E912KGFH7K'
+  ></script>
+  <script type='text/partytown'>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-E912KGFH7K');
+  </script>
 </head>
