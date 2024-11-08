@@ -13,8 +13,13 @@ const { class: className, headings } = Astro.props;
   <ul class='border-l-2'>
     {
       headings.map((e) => (
-        <li class:list={[`p-${e.depth}`, 'py-1 pr-1']}>
-          <a href={`#${e.slug}`} class='text-muted-foreground hover:text-foreground'>
+        <li
+          class='py-1 pr-1 duration-200 hover:translate-x-0.5'
+          style={{
+            'margin-left': `calc(${e.depth - 1} * 0.75rem)`,
+          }}
+        >
+          <a href={`#${e.slug}`} class='text-muted-foreground break-keep hover:text-foreground'>
             {e.text}
           </a>
         </li>

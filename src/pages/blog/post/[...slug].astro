@@ -26,7 +26,7 @@ const { Content, headings } = await render(post);
 
 <Document>
   <Head
-    title={`${data.category} - ${data.title}`}
+    title={`${data.category.id} - ${data.title}`}
     description={data.description}
     image={`/blog/image/${id}.png`}
   />

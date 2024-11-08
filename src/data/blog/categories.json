@@ -6,5 +6,9 @@
   "Android": {
     "bgTopColor": "#6CD88B",
     "bgBottomColor": "#4D85EF"
+  },
+  "GitHub": {
+    "bgTopColor": "#000000",
+    "bgBottomColor": "#555555"
   }
 }

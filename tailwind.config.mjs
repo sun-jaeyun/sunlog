@@ -61,21 +61,23 @@ export default {
             'line-height': '2rem',
           },
           '& h2': {
-            'margin-top': '2rem',
+            'margin-top': '4rem',
             'margin-bottom': '2rem',
+            'margin-left': '-1rem',
             'font-size': '1.5rem',
             'line-height': '2rem',
             'font-weight': 700,
           },
           '& h3': {
-            'margin-top': '1rem',
+            'margin-top': '3rem',
             'margin-bottom': '1rem',
+            'margin-left': '-0.5rem',
             'font-size': '1.25rem',
             'line-height': '1.75rem',
             'font-weight': 700,
           },
           '& h4': {
-            'margin-top': '1rem',
+            'margin-top': '2.5rem',
             'margin-bottom': '1rem',
             'font-weight': 700,
           },
@@ -109,6 +111,16 @@ export default {
           '& hr': {
             'margin-top': '2rem',
             'margin-bottom': '2rem',
+          },
+          '& pre': {
+            'padding-top': '0.5rem',
+            'padding-bottom': '0.5rem',
+            'padding-left': '1rem',
+            'padding-right': '1rem',
+            'border-radius': 'calc(var(--radius) - 4px)',
+          },
+          '& pre > code': {
+            all: 'unset',
           },
           '& code': {
             padding: '0.25rem',

@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: import.meta.env.CF_PAGES_URL || 'https://example.com',
   integrations: [tailwind(), sitemap()],
 });
