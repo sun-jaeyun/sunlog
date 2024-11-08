@@ -1,4 +1,4 @@
-# <img src='/public/favicon.svg' alt='' width=24 height=24 />Sunlog
+# <img src='/public/favicon.svg' alt='' width=24 height=24 /> Sunlog
 made by [Astro](https://astro.build/)
 
 ## 프론트엔드 개발자의 되는 대로 적는 블로그
