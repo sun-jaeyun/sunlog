@@ -1,15 +1,14 @@
 ---
-import '@fontsource/pretendard';
 import Document from '../layouts/Document.astro';
-import BaseHead from '../layouts/BaseHead.astro';
-import Header from '../layouts/Header.astro';
+import Head from '../layouts/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Document>
-  <head>
-    <BaseHead />
-  </head>
+  <Head />
   <body>
     <Header />
+    <Footer />
   </body>
 </Document>

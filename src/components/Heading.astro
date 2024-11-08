@@ -1,0 +1,29 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  class: string;
+  headings: MarkdownHeading[];
+}
+
+const { class: className, headings } = Astro.props;
+---
+
+<nav class={className}>
+  <ul class='border-l-2'>
+    {
+      headings.map((e) => (
+        <li
+          class='py-1 pr-1 duration-200 hover:translate-x-0.5'
+          style={{
+            'margin-left': `calc(${e.depth - 1} * 0.75rem)`,
+          }}
+        >
+          <a href={`#${e.slug}`} class='text-muted-foreground break-keep hover:text-foreground'>
+            {e.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

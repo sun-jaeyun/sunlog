@@ -1,0 +1,29 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { InferEntrySchema } from 'astro:content';
+import Heading from './Heading.astro';
+
+interface Props extends InferEntrySchema<'blog'> {
+  headings: MarkdownHeading[];
+}
+const { title, publishedAt, category, headings } = Astro.props;
+---
+
+<main class='relative max-w-screen-lg m-auto p-8 pb-24 sm:pb-48'>
+  <div class='fixed max-w-screen-lg w-full'>
+    <Heading class='absolute top-4 left-full w-64' headings={headings} />
+  </div>
+  <article class='post'>
+    <div class='flex flex-col items-center mb-24 text-center'>
+      <p>{category.id}</p>
+      <h1 class='text-3xl font-bold break-keep'>{title}</h1>
+      <time datetime={publishedAt.toISOString()} class='text-muted-foreground'>
+        {publishedAt.toLocaleDateString('ko-kr')}
+      </time>
+    </div>
+    <slot />
+  </article>
+  <!-- <div class='absolute top-0 left-full'>
+    <Heading class='sticky top-0 w-64' headings={headings} />
+  </div> -->
+</main>

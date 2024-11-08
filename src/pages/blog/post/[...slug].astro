@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Document from '../../../layouts/Document.astro';
+import Head from '../../../layouts/Head.astro';
+import Post from '../../../components/Post.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getCollection('blog');
+  const encodedPosts = posts.map((post) => {
+    const { id, ...slug } = post;
+    return { id: encodeURI(id), ...slug };
+  });
+  return [
+    ...posts.map((post) => ({ params: { slug: post.id }, props: post })),
+    ...encodedPosts.map((post) => ({ params: { slug: post.id }, props: post })),
+  ];
+};
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { id, data } = post;
+const { Content, headings } = await render(post);
+---
+
+<Document>
+  <Head
+    title={`${data.category.id} - ${data.title}`}
+    description={data.description}
+    image={`/blog/image/${id}.png`}
+  />
+  <body>
+    <Header />
+    <Post headings={headings} {...data}>
+      <Content />
+    </Post>
+    <Footer />
+  </body>
+</Document>
