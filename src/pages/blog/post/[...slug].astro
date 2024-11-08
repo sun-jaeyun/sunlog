@@ -5,6 +5,7 @@ import Document from '../../../layouts/Document.astro';
 import Head from '../../../layouts/Head.astro';
 import Post from '../../../components/Post.astro';
 import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -35,5 +36,6 @@ const { Content, headings } = await render(post);
     <Post headings={headings} {...data}>
       <Content />
     </Post>
+    <Footer />
   </body>
 </Document>
