@@ -11,6 +11,11 @@ category: 'Nextjs'
 1. zod를 통한 검증으로 env의 타입 안전성을 보장한다.
 2. 빌드 시 빌드에 필요한 env를 미리 검증하고 알려준다.
 
+> 빌드 중에 환경 변수를 잊어버리는 것은 번거롭고 누락된 환경 변수로 인해 버그가 발생할 경우 디버깅하기 어려울 수 있습니다. 이 패키지는 앱의 환경 변수 유효성 검사를 정의하는 간단한 방법을 제공합니다.
+>
+> 스키마를 정의하고 환경 변수를 안전하게 사용하기만 하면 이 라이브러리가 모든 지루한 작업을 대신 수행합니다.
+> \- [T3 Env 소개](https://env.t3.gg/docs/introduction)
+>
 > Forgetting environment variables during build can be a hassle and difficult to debug if a bug is caused by a missing environment variable. This package provides a simple way to define environment variables validation for your app.
 >
 > This library does all the grunt work for you, simply define your schema and use your environment variables safely.
@@ -124,7 +129,7 @@ export const env = createEnv({
 ```
 예제 외에도 zod에서 사용 가능한 모든 옵션 사용 가능
 
-### 스토리북
+### 스토리북에서 사용
 
 스토리북은 자체 번들러를 사용하므로 StroybookConfig에서 별도로 추가해서 사용 가능
 ```typescript
@@ -142,7 +147,7 @@ const config: StorybookConfig = {
 export default config;
 ```
 
-### 그 외
+### 그 외 옵션
 
 그 외에도 다양한 옵션들이 있으며 [공식문서](https://env.t3.gg/docs/customization)에서 확인 가능
 - 검증 건너뛰기
