@@ -1,5 +1,5 @@
 ---
-title: 'T3로 env를 안전하게 관리하기'
+title: 'T3 Env로 env를 안전하게 관리하기'
 description: 'T3 Env를 사용해 Next.js에서 env를 안전하게 관리하는 방법'
 publishedAt: '2024-11-06'
 category: 'Nextjs'
@@ -8,7 +8,8 @@ category: 'Nextjs'
 ## T3 Env란?
 
 빌드에 필요한 환경변수를 잊어버린 경우 디버깅을 도와주고 타입 안전한 환경변수 사용을 도와주는 간단한 라이브러리로 다음과 같은 이점을 얻을 수 있음
-1. zod를 통한 검증으로 env의 타입 안전성을 보장한다.
+
+1. zod를 통한 검증으로 env의 타입 안전성을 보장하고 타입 추론을 도와준다.
 2. 빌드 시 빌드에 필요한 env를 미리 검증하고 알려준다.
 
 > 빌드 중에 환경 변수를 잊어버리는 것은 번거롭고 누락된 환경 변수로 인해 버그가 발생할 경우 디버깅하기 어려울 수 있습니다. 이 패키지는 앱의 환경 변수 유효성 검사를 정의하는 간단한 방법을 제공합니다.
@@ -16,10 +17,10 @@ category: 'Nextjs'
 > 스키마를 정의하고 환경 변수를 안전하게 사용하기만 하면 이 라이브러리가 모든 지루한 작업을 대신 수행합니다.
 > \- [T3 Env 소개](https://env.t3.gg/docs/introduction)
 >
-> Forgetting environment variables during build can be a hassle and difficult to debug if a bug is caused by a missing environment variable. This package provides a simple way to define environment variables validation for your app.
+> \> _Forgetting environment variables during build can be a hassle and difficult to debug if a bug is caused by a missing environment variable. This package provides a simple way to define environment variables validation for your app._
 >
-> This library does all the grunt work for you, simply define your schema and use your environment variables safely.
-> \- [T3 Env Introduction](https://env.t3.gg/docs/introduction)
+> _This library does all the grunt work for you, simply define your schema and use your environment variables safely._
+> _\- [T3 Env Introduction](https://env.t3.gg/docs/introduction)_
 
 ---
 
