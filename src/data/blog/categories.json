@@ -11,7 +11,10 @@
     "bgTopColor": "#000000",
     "bgBottomColor": "#646464"
   },
-  "Nextjs": {
+  "Nextjs": {},
+  "React": {
+    "bgTopColor": "#75C2D9",
+    "bgBottomColor": "#24272E"
   },
   "Flutter": {
     "bgTopColor": "#55C3F7",
