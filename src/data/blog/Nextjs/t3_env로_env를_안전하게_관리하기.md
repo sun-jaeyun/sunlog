@@ -85,7 +85,7 @@ export default {
 ### 확인
 - `.env`에서 _DATABASE_URL_ 주석처리하고 실행해보면 다음과 같은 에러와 함께 실행이 되지 않는다
 - dev, build 동일
-![](https://res.cloudinary.com/dlctyrcqk/image/upload/v1731295842/Screenshot_2024-11-11_at_12.29.29_PM_x2es3o.png)
+![Invalid environment variables: { DATABASE_URL: [ 'Required' ] }](https://res.cloudinary.com/dlctyrcqk/image/upload/v1731295842/Screenshot_2024-11-11_at_12.29.29_PM_x2es3o.png)
 ---
 
 ## 환경변수 사용

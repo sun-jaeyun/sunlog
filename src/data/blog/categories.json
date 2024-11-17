@@ -12,5 +12,9 @@
     "bgBottomColor": "#646464"
   },
   "Nextjs": {
+  },
+  "Flutter": {
+    "bgTopColor": "#55C3F7",
+    "bgBottomColor": "#0B5094"
   }
 }
