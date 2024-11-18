@@ -6,6 +6,7 @@ import plugin from 'tailwindcss/plugin';
 export default {
   darkMode: 'selector',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  safelist: ['ml-2', 'ml-4', 'ml-6', 'ml-8'],
   theme: {
     extend: {
       colors: {
@@ -49,6 +50,9 @@ export default {
       },
       fontFamily: {
         sans: ['Pretendard', defaultTheme.fontFamily.sans],
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       },
     },
   },
