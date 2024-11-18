@@ -17,9 +17,10 @@ category: 'React'
 
 ## 시작
 
-1. 기본 구조와 `css` 설정
+### 기본 구조와 `css` 설정
 ```jsx
 import React from 'react';
+import './style.css';
 
 const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
   return (
@@ -28,6 +29,8 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
     </div>
   );
 };
+
+export default ScrollCarousel;
 ```
 ```css
 /* style.css */
@@ -58,15 +61,14 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
 여기까지만 해도 가로 스크롤이 지원되는 환경에선 자연스러운 스크롤이 가능한 Carousel이 완성됨.  
 다음 단계는 마우스 사용환경에서 클릭&드래그를 지원하기 위한 파트
 
-2. state와 이벤트 핸들러 설정
+### state와 이벤트 핸들러 설정
 ```jsx
 import React from 'react';
+import './style.css';
 
 const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
   // 드래그 여부
   const [isDown, setIsDown] = useState(false);
-  // 스크롤 중인지 여부
-  const [isScrolling, setIsScrolling] = useState(false);
   // 마우스 다운 이벤트 발생 시 마우스의 X 좌표를 저장
   const [startX, setStartX] = useState(0);
   // 마우스 다운 이벤트 발생 시 body의 스크롤 위치를 저장
@@ -86,7 +88,6 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
       return;
     }
     e.preventDefault(); // 기본 동작 방지 (예: 텍스트 선택 방지)
-    setIsScrolling(true); // 스크롤 중 상태로 변경
     const x = e.pageX - e.currentTarget.offsetLeft; // 현재 마우스의 X 좌표 계산
     const moveX = x - startX; // 마우스가 움직인 거리 계산
     e.currentTarget.scrollLeft = scrollLeft - moveX; // 움직인 거리를 기반으로 스크롤 위치 업데이트
@@ -95,7 +96,6 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
   // 마우스를 뗐을 때
   const onMouseUp = () => {
     setIsDown(false); // 드래그 종료 상태로 변경
-    setIsScrolling(false); // 스크롤 종료 상태로 변경
   };
 
   // 마우스가 요소 밖으로 나갔을 때
@@ -116,6 +116,8 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
     </div>
   );
 };
+
+export default ScrollCarousel;
 ```
 ```css
 /* style.css */
@@ -125,43 +127,21 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
 /* children */
 .carousel-body > * {
   flex: none;
-  pointer-events: none; /* update */
+  pointer-events: none; /* update: children이 드래그 되는 걸 방지 */
 }
 ```
 
-3. `css` 추가옵션  
+### `css` 추가옵션  
 
-**body**의 cursor를 `grab`으로, 드래그 중일 땐 cursor를 `grabbing`으로 바꿔주면 자연스러우며 **children**도 스크롤 중이지 않을 땐 pointer-events를 `auto`로 바꿔주는게 더 자연스러움.  
-해당 내용은 편의상 [Emotion](https://emotion.sh/docs/introduction)로 작성.
+**body**의 cursor를 `grab`으로, 드래그 중일 땐 cursor를 `grabbing`으로 바꿔주면 더 자연스러움  
+해당 내용은 편의상 [Tailwind CSS](https://tailwindcss.com/)로 작성.
 
 ```jsx
-import React from 'react';
-import { css } from '@emotion/react';
+import React, { useState } from 'react';
 
-const bodyStyles = (isDown, isScrolling) => css`
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: ${isDown ? 'grabbing' : 'grab'};
-  user-select: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  & > * {
-    flex: none;
-    pointer-events: ${isScrolling ? 'none' : 'auto'};
-  }
-`;
-
-const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
+const ScrollCarousel = ({ children }: { children?: React.ReactNode }) => {
   // 드래그 여부
   const [isDown, setIsDown] = useState(false);
-  // 스크롤 중인지 여부
-  const [isScrolling, setIsScrolling] = useState(false);
   // 마우스 다운 이벤트 발생 시 마우스의 X 좌표를 저장
   const [startX, setStartX] = useState(0);
   // 마우스 다운 이벤트 발생 시 body의 스크롤 위치를 저장
@@ -181,7 +161,6 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
       return;
     }
     e.preventDefault(); // 기본 동작 방지 (예: 텍스트 선택 방지)
-    setIsScrolling(true); // 스크롤 중 상태로 변경
     const x = e.pageX - e.currentTarget.offsetLeft; // 현재 마우스의 X 좌표 계산
     const moveX = x - startX; // 마우스가 움직인 거리 계산
     e.currentTarget.scrollLeft = scrollLeft - moveX; // 움직인 거리를 기반으로 스크롤 위치 업데이트
@@ -190,7 +169,6 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
   // 마우스를 뗐을 때
   const onMouseUp = () => {
     setIsDown(false); // 드래그 종료 상태로 변경
-    setIsScrolling(false); // 스크롤 종료 상태로 변경
   };
 
   // 마우스가 요소 밖으로 나갔을 때
@@ -199,16 +177,23 @@ const ScrollCarousel = ({ children }: { children?: React.ReactNode; }) => {
   };
 
   return (
-    <div className='carousel-container'>
+    <div className='w-full relative'>
       <div
+        className={`flex flex-nowrap overflow-x-auto select-none scrollbar-hide ${isDown ? 'cursor-grabbing' : 'cursor-grab'} [&>*]:flex-none [&>*]:pointer-events-none`}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseLeave}
-        css={bodyStyles(isDown, isScrolling)}>
-          {children}
-        </div>
+      >
+        {children}
+      </div>
     </div>
   );
 };
+
+export default ScrollCarousel;
 ```
+scrollbar-hide 속성은 [tailwind-scrollbar-hide](https://www.npmjs.com/package/tailwind-scrollbar-hide) 사용
+
+## 결과
+![](https://res.cloudinary.com/dlctyrcqk/image/upload/v1731888695/scroll_carousel_result_ijiclb.gif)
