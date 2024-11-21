@@ -48,9 +48,9 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      fontFamily: {
-        sans: ['Pretendard', defaultTheme.fontFamily.sans],
-      },
+      // fontFamily: {
+      //   sans: ['Pretendard', defaultTheme.fontFamily.sans],
+      // },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },

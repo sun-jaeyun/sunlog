@@ -20,9 +20,6 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.2
         version: 5.1.2(astro@5.0.0-beta.6(rollup@4.24.2)(typescript@5.6.3))(tailwindcss@3.4.14)
-      '@fontsource/pretendard':
-        specifier: ^5.1.0
-        version: 5.1.0
       astro:
         specifier: 5.0.0-beta.6
         version: 5.0.0-beta.6(rollup@4.24.2)(typescript@5.6.3)
@@ -431,9 +428,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource/pretendard@5.1.0':
-    resolution: {integrity: sha512-aUkTiTYKDX/919OJqKKyly4cuoets76Cwjqw1qNTCFpIdVMpOm5uGEpreIPabDdp1ReYdeVfB94Wxyn5Q9jrBQ==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2452,8 +2446,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.24.0':
     optional: true
-
-  '@fontsource/pretendard@5.1.0': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

@@ -13,7 +13,6 @@
     "@astrojs/partytown": "^2.1.2",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
-    "@fontsource/pretendard": "^5.1.0",
     "astro": "5.0.0-beta.6",
     "astro-og-canvas": "^0.5.4",
     "canvaskit-wasm": "^0.39.1",

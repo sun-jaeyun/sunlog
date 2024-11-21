@@ -1,8 +1,4 @@
 ---
-import '@fontsource/pretendard/400.css';
-import '@fontsource/pretendard/700.css';
-import pretendard400 from '@fontsource/pretendard/files/pretendard-latin-400-normal.woff2';
-import pretendard700 from '@fontsource/pretendard/files/pretendard-latin-700-normal.woff2';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { ClientRouter } from 'astro:transitions';
 
@@ -28,9 +24,6 @@ const {
   <meta name='generator' content={Astro.generator} />
   <!-- Sitemap -->
   <link rel='sitemap' href='/sitemap-index.xml' />
-  <!-- Fonts -->
-  <link rel='preload' as='font' href={pretendard400} type='font/woff2' crossorigin />
-  <link rel='preload' as='font' href={pretendard700} type='font/woff2' crossorigin />
   <!-- Canonical URL -->
   <link rel='canonical' href={canonicalURL} />
   <!-- Primary Meta Tags -->
