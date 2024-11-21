@@ -9,7 +9,14 @@ const { title, description, publishedAt, category } = data;
 ---
 
 <article class='border rounded-lg'>
-  <Image src={`/blog/image/${id}.png`} alt={title} width={600} height={315} fetchpriority='high' class='rounded-t-lg' />
+  <Image
+    src={`/blog/image/${id}.png`}
+    alt={title}
+    width={600}
+    height={315}
+    fetchpriority='high'
+    class='rounded-t-lg'
+  />
   <section class='p-4 space-y-2'>
     <p class='text-sm'>{category.id}</p>
     <h2 class='text-xl'>{title}</h2>

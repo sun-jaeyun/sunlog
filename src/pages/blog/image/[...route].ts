@@ -55,9 +55,9 @@ export const { getStaticPaths, GET } = OGImageRoute({
       title: { weight: 'Bold', families: ['Arial'] },
       description: { families: ['Arial'] },
     },
-    // fonts: [
-    //   'https://api.fontsource.org/v1/fonts/pretendard/latin-400-normal.ttf',
-    //   'https://api.fontsource.org/v1/fonts/pretendard/latin-700-normal.ttf',
-    // ],
+    fonts: [
+      'https://api.fontsource.org/v1/fonts/pretendard/latin-400-normal.ttf',
+      'https://api.fontsource.org/v1/fonts/pretendard/latin-700-normal.ttf',
+    ],
   }),
 });
