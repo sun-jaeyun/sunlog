@@ -18,11 +18,13 @@ const { title, description, publishedAt, category } = data;
     class='rounded-t-lg'
   />
   <section class='p-4 space-y-2'>
-    <p class='text-sm'>{category.id}</p>
+    <p class='text-sm text-muted-foreground'>
+      {category.id}
+    </p>
     <h2 class='text-xl'>{title}</h2>
-    <p class='text-xs text-muted-foreground'>{description}</p>
+    <p class='text-sm'>{description}</p>
+    <time datetime={publishedAt.toISOString()} class='text-xs text-muted-foreground'>
+      {publishedAt.toLocaleDateString('ko-kr')}
+    </time>
   </section>
-  <!--<time datetime={data.publishedAt.toISOString()}>-->
-  <!--  {data.publishedAt.toLocaleDateString('ko-kr')}-->
-  <!--</time>-->
 </article>
