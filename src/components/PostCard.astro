@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, type ImgAttributes } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<'blog'> & Pick<ImgAttributes, 'fetchpriority'>;
 
-const { id, data } = Astro.props;
+const { id, data, fetchpriority = 'auto' } = Astro.props;
 const { title, description, publishedAt, category } = data;
 ---
 
@@ -14,7 +14,7 @@ const { title, description, publishedAt, category } = data;
     alt={title}
     width={600}
     height={315}
-    fetchpriority='high'
+    fetchpriority={fetchpriority}
     class='rounded-t-lg'
   />
   <section class='p-4 space-y-2'>
