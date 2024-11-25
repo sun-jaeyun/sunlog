@@ -1,7 +1,7 @@
 ---
 title: 'App Icon 변경하기'
 description: 'Android 앱의 아이콘을 변경하는 방법'
-publishedAt: '2024-10-31'
+publishedAt: '2024-10-30'
 category: 'Android'
 ---
 

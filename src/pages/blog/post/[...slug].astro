@@ -6,6 +6,9 @@ import Head from '../../../layouts/Head.astro';
 import Post from '../../../components/Post.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+import { undefined } from 'astro:schema';
+import PostCard from '../../../components/PostCard.astro';
+import PostNavigator from '../../../components/PostNavigator.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog');
@@ -13,14 +16,33 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const { id, ...slug } = post;
     return { id: encodeURI(id), ...slug };
   });
+
   return [
-    ...posts.map((post) => ({ params: { slug: post.id }, props: post })),
-    ...encodedPosts.map((post) => ({ params: { slug: post.id }, props: post })),
+    ...posts.map((post, index) => ({
+      params: { slug: post.id },
+      props: {
+        post,
+        prevPost: index > 0 ? posts.at(index - 1) : undefined,
+        nextPost: index < posts.length - 1 ? posts.at(index + 1) : undefined,
+      },
+    })),
+    ...encodedPosts.map((post, index) => ({
+      params: { slug: post.id },
+      props: {
+        post,
+        prevPost: index > 0 ? encodedPosts.at(index - 1) : undefined,
+        nextPost: index < encodedPosts.length - 1 ? encodedPosts.at(index + 1) : undefined,
+      },
+    })),
   ];
 };
-type Props = CollectionEntry<'blog'>;
+type Props = {
+  post: CollectionEntry<'blog'>;
+  prevPost?: CollectionEntry<'blog'>;
+  nextPost?: CollectionEntry<'blog'>;
+};
 
-const post = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 const { id, data } = post;
 const { Content, headings } = await render(post);
 ---
@@ -36,6 +58,7 @@ const { Content, headings } = await render(post);
     <Post headings={headings} {...data}>
       <Content />
     </Post>
+    <PostNavigator prevPost={prevPost} nextPost={nextPost} />
     <Footer />
   </body>
 </Document>
