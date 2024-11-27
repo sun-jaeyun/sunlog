@@ -21,7 +21,7 @@ const sortedPosts = posts.sort(
       {
         sortedPosts.map((post, index) => (
           <a href={`/blog/post/${post.id}`} class='w-full sm:w-[calc(50%-0.5rem)]'>
-            <PostCard {...post} />
+            <PostCard {...post} fetchpriority={index < 2 ? 'high' : 'auto'} />
           </a>
         ))
       }
