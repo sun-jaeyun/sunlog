@@ -1,6 +1,6 @@
 ---
 title: 'Singleton Pattern 구현하기'
-description: 'Dart에서 Singleton Pattern을 구현하기 (w. factory 생성자)'
+description: 'Dart에서 Singleton Pattern을 구현하기(w. factory 생성자)'
 publishedAt: '2024-11-24'
 category: 'Dart'
 ---
