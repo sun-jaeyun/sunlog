@@ -16,6 +16,10 @@
     "bgTopColor": "#75C2D9",
     "bgBottomColor": "#24272E"
   },
+  "Dart": {
+    "bgTopColor": "#5BB4F0",
+    "bgBottomColor": "#255797"
+  },
   "Flutter": {
     "bgTopColor": "#55C3F7",
     "bgBottomColor": "#0B5094"
