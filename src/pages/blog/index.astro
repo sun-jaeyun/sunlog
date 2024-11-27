@@ -6,9 +6,8 @@ import { getCollection } from 'astro:content';
 import PostCard from '../../components/PostCard.astro';
 import Footer from '../../components/Footer.astro';
 
-const posts = await getCollection('blog');
-const sortedPosts = posts.sort(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+const posts = await getCollection('blog').then((data) =>
+  data.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()),
 );
 // class={index === 0 ? 'w-full sm:m-16' : 'w-full sm:w-[calc(50%-0.5rem)]'}
 ---
@@ -19,7 +18,7 @@ const sortedPosts = posts.sort(
     <Header />
     <main class='flex flex-wrap gap-4 max-w-screen-lg m-auto p-6'>
       {
-        sortedPosts.map((post, index) => (
+        posts.map((post, index) => (
           <a href={`/blog/post/${post.id}`} class='w-full sm:w-[calc(50%-0.5rem)]'>
             <PostCard {...post} fetchpriority={index < 2 ? 'high' : 'auto'} />
           </a>

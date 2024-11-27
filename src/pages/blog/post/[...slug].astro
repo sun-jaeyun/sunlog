@@ -9,7 +9,9 @@ import Footer from '../../../components/Footer.astro';
 import PostNavigator from '../../../components/PostNavigator.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blog').then((data) =>
+    data.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()),
+  );
   const encodedPosts = posts.map((post) => {
     const { id, ...slug } = post;
     return { id: encodeURI(id), ...slug };
