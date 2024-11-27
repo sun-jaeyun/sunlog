@@ -99,11 +99,13 @@ export default {
             padding: '1rem',
           },
           '& ol': {
+            // 'list-style-position': 'inside',
             'list-style-type': 'decimal',
             'margin-top': '1rem',
             'margin-bottom': '1rem',
           },
           '& ul': {
+            // 'list-style-position': 'inside',
             'list-style-type': 'disc',
             'margin-top': '1rem',
             'margin-bottom': '1rem',
