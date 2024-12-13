@@ -1,7 +1,7 @@
 ---
+import HeaderLink from '../components/common/HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import SunIcon from '../icons/SunIcon.astro';
-import HeaderLink from './HeaderLink.astro';
 ---
 
 <header class='p-4 sm:p-6 space-y-4'>
@@ -21,9 +21,9 @@ import HeaderLink from './HeaderLink.astro';
       >
     </a>
   </div>
-  <nav class='flex gap-4'>
+  <nav class='flex gap-4' aria-label='네비게이션'>
     <HeaderLink href='/'>홈</HeaderLink>
     <HeaderLink href='/blog'>블로그</HeaderLink>
-    <!-- <HeaderLink href='/playground'>플레이그라운드</HeaderLink> -->
+    <!-- <HeaderLink href='/repository'>저장소</HeaderLink> -->
   </nav>
 </header>

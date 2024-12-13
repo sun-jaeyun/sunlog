@@ -8,7 +8,7 @@ const { id, data, fetchpriority = 'auto' } = Astro.props;
 const { title, description, publishedAt, category } = data;
 ---
 
-<article class='border rounded-lg'>
+<section class='border rounded-lg'>
   <Image
     src={`/blog/image/${id}.png`}
     alt={title}
@@ -17,7 +17,7 @@ const { title, description, publishedAt, category } = data;
     fetchpriority={fetchpriority}
     class='rounded-t-lg'
   />
-  <section class='p-4 space-y-2'>
+  <div class='p-4 space-y-2'>
     <p class='text-sm text-muted-foreground'>
       {category.id}
     </p>
@@ -26,5 +26,5 @@ const { title, description, publishedAt, category } = data;
     <time datetime={publishedAt.toISOString()} class='text-xs text-muted-foreground'>
       {publishedAt.toLocaleDateString('ko-kr')}
     </time>
-  </section>
-</article>
+  </div>
+</section>

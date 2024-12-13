@@ -9,7 +9,7 @@ interface Props {
 const { class: className, headings } = Astro.props;
 ---
 
-<nav class={className}>
+<nav class={className} aria-label='목차'>
   <ul class='border-l-2'>
     {
       headings.map((e) => (

@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostCard from '../components/blog/PostCard.astro';
+
+type Props = { posts: CollectionEntry<'blog'>[] };
+
+const { posts } = Astro.props;
+---
+
+<main>
+  <ul class='flex flex-wrap gap-4 max-w-screen-lg m-auto p-6'>
+    {
+      posts.map((post, index) => (
+        <li class='w-full sm:w-[calc(50%-0.5rem)]'>
+          <a href={`/blog/post/${post.id}`}>
+            {/* class={index === 0 ? 'w-full sm:m-16' : 'w-full sm:w-[calc(50%-0.5rem)]'} */}
+            <PostCard {...post} fetchpriority={index < 2 ? 'high' : 'auto'} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</main>
